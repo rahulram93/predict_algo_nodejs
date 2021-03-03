@@ -26,4 +26,4 @@ app.get("/words", cors(), (req, res) => {
   });
 });
 
-app.listen(3001);
+app.listen(4001);
