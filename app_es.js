@@ -6,10 +6,12 @@ const app = express();
 //const MongoClient = require('mongodb');
 const cors = require('cors');
 const PORT = 3001;
+express.static(__dirname + '/public')
+app.use(express.static('public'))
 
 
 app.get("/", (req, res) => {
-  res.send("Hello world");
+  res.render("index.html");
 });
 
 app.get("/words", cors(), async (req, res) => {
@@ -23,8 +25,8 @@ app.get("/words", cors(), async (req, res) => {
           prefix: value,
           completion: {
             size: 10,
-            field: "suggest",
-            fuzzy: {}
+            field: "suggest" 
+            //fuzzy: {}
           }
         }
       }
